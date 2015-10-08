@@ -10,3 +10,17 @@ from django import forms
 
 
 def register(request):
+	form = UserForm(request.POST or None)
+
+	context = {
+	"form": form
+	}
+
+	if form.is_valid():
+		instance = form.save(commit=False)
+		instance.save()
+		context = {
+		"title": "Thank you"
+		}
+
+	return render(request, 'register.html', context)
