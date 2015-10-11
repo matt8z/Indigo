@@ -11,7 +11,7 @@ from django import forms
 
 def register(request):
 	form = UserForm(request.POST or None)
-
+	registered = False
 	context = {
 	"form": form
 	}
@@ -22,5 +22,10 @@ def register(request):
 		context = {
 		"title": "Thank you"
 		}
+		registered = True
 
-	return render(request, 'register.html', context)
+	return render(
+		request,
+		'register.html',
+		context
+		)

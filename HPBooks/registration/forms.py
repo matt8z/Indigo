@@ -8,4 +8,13 @@ class UserForm(forms.ModelForm):
     
     class Meta:
         model = User
-        fields = ('email', 'username', 'password')
+        fields = ('username', 'email', 'password')
+
+    def clean_email(self):
+    	email = self.cleaned_data.get('email')
+    	provider = email.split("@")
+
+    	if not provider == "student.dist113.org":
+    		raise forms.ValidationError("Use a district 113 school email address")
+
+    	return email
