@@ -12,9 +12,9 @@ class UserForm(forms.ModelForm):
 
     def clean_email(self):
     	email = self.cleaned_data.get('email')
-    	provider = email.split("@")
+    	first, second = email.split("@")
 
-    	if not provider == "student.dist113.org":
-    		raise forms.ValidationError("Use a district 113 school email address")
+    	if not second == "student.dist113.org":
+    		raise forms.ValidationError("Please use a District 113 email")
 
     	return email
