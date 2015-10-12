@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Dry Run</title>
-</head>
-<body>
-<form method="POST" action=''>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block jumbotron %}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<form method='POST' action=''>
 {% csrf_token %}
-{{ form.as_p }}
-<input type = 'submit' value = 'Submit' />
+{{ form|crispy }}
+
+<input class = 'btn btn-primary' type='submit' value='Sign Up' />
+
+
+
 </form>
-{% if reigstered %}
-<h1>Thank You</h1>
-{% endif %}
-</body>
-
-
-
-</html>
+</div>
+</div>
+{% endblock %}

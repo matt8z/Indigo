@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '162winterse@student.dist113.org'
+EMAIL_HOST_PASSWORD = 'Hphs2165489'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 
@@ -35,10 +40,13 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'registration',
-)
+    'regigister',
+    'crispy_forms',
+    )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -97,7 +105,24 @@ USE_L10N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT =  os.path.join(os.path.dirname(BASE_DIR), "static_in_env", "static_root")
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static_in_pro", "our_static"),
+    #os.path.join(BASE_DIR, "static_in_env"),
+    #'/var/www/static',
+)
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+STATIC_URL = '/static/'
+#redux settings
+ACCOUNT_ACTIVATION_DAYS = 2 
+REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
