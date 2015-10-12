@@ -7,24 +7,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django import forms
 
+def listings(request):
+	render(request, 'listings.html')
 
-def register(request):
-	form = UserForm(request.POST or None)
-	registered = False
-	context = {
-	"form": form
-	}
-
-	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.save()
-		context = {
-		"title": "Thank you"
-		}
-		registered = True
-
-	return render(
-		request,
-		'register.html',
-		context
-		)
