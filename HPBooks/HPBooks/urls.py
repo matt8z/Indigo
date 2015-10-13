@@ -19,7 +19,9 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^register/', include('regigister.urls')),
+    # url(r'^register/', include('regigister.urls')),
+    # url(r'^marketplace/', include('marketplace.urls')),
+
     # url(r'^accounts/', include('registration.backends.hmac.urls')),
 
 ]

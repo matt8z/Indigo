@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from registration.models import UserProfile
 
 class Subjects(models.Model):
 	SUBJECT_OPTIONS = (
@@ -64,5 +63,6 @@ class Listings(models.Model):
 	book = models.ForeignKey(Titles)
 	price = models.IntegerField()
 	
+
 	
 
